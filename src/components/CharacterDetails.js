@@ -1,29 +1,31 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
+function CharacterDetails(props) {
 
-function CharacterDetails(props){
+    const { characterId } = useParams();
 
-    const [details, setDetails] = useState({});
+    const charactersArr = props.charactersArr;
 
-    const {characterId} = useParams();
+    const characterDetails = charactersArr.find((character) => {
+        return character.id == characterId;
+    });
 
-    useEffect(() => {
-        axios.get(`https://ih-crud-api.herokuapp.com/characters/${characterId}`)
-            .then( response => {
-                setDetails(response.data);
-            })
-            .catch( e => console.log("error getting character details...", e))
-    }, [props.id]);
-    
+
+    const renderDetails = () => {
+        return (
+            <>
+                <h1>{characterDetails.name} </h1>
+                Occupation: {characterDetails.occupation} <br />
+                Weapon: {characterDetails.weapon} <br />
+                Debt: {characterDetails.debt ? "Yes" : "No"} <br />
+            </>
+        );
+    }
+
 
     return (
         <>
-            <h1>{details.name} </h1>
-            Occupation: {details.occupation} <br />
-            Weapon: {details.weapon} <br />
-            Debt: {details.debt ? "Yes" : "No"} <br />
+            {characterDetails ? renderDetails() : <p>Loading...</p>}
         </>
     );
 }

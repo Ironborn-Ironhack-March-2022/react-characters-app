@@ -49,7 +49,7 @@ function App() {
         <Route path="/characters/4" element={<CharacterDetails id="4" />} /> 
         */}
         
-        <Route path="/characters/:characterId/" element={<CharacterDetails />} />
+        <Route path="/characters/:characterId/" element={<CharacterDetails charactersArr={characters} />} />
       </Routes>
 
     </div>
