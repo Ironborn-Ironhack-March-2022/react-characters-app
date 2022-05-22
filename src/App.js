@@ -37,7 +37,9 @@ function App() {
 
   return (
     <div className="App">
-      <h1>React Charates App</h1>
+      <header>
+        <h1>React Charates App</h1>
+      </header>
 
       <Routes>
         <Route path='/' element={renderListOfCharacters()} />

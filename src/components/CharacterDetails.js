@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 
 function CharacterDetails(props) {
 
@@ -13,20 +13,21 @@ function CharacterDetails(props) {
 
     const renderDetails = () => {
         return (
-            <>
+            <div className="box">
                 <h1>{characterDetails.name} </h1>
                 Occupation: {characterDetails.occupation} <br />
                 Weapon: {characterDetails.weapon} <br />
                 Debt: {characterDetails.debt ? "Yes" : "No"} <br />
-            </>
+            </div>
         );
     }
 
 
     return (
-        <>
+        <div className="CharacterDetails">
             {characterDetails ? renderDetails() : <p>Loading...</p>}
-        </>
+            <NavLink to="/">Back</NavLink>
+        </div>
     );
 }
 
