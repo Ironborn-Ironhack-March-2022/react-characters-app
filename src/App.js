@@ -9,7 +9,7 @@ function App() {
   const [characters, setCharacters] = useState([]);
 
   useEffect(() => {
-    axios.get("https://ih-crud-api.herokuapp.com/characters")
+    axios.get(process.env.REACT_APP_API_URL + "/characters")
       .then(response => {
         setCharacters(response.data);
       })
