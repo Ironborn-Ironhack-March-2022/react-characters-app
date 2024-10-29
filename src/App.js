@@ -38,7 +38,7 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1>React Charates App</h1>
+        <h1>React Characters App</h1>
       </header>
 
       <Routes>
